@@ -1,0 +1,26 @@
+.blog-list {
+    margin-top: 50px;
+}
+.blog-list .list-unstyled li {
+    margin: 10px 0;
+    padding: 20px 10px;
+    border: 2px solid #007bff;
+}
+.blog-list .list-unstyled li img {
+    width:  150px;
+    height: 100%;
+}
+.list-action a {
+    padding: 10px;
+    font-size: 20px;
+}
+.add_new {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.add_new a {
+    padding-top: 9px;
+    font-size: 20px;
+    padding-right: 10px;
+}

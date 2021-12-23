@@ -1,0 +1,6 @@
+.toast {
+    right: 0;
+    top: 0;
+    position: absolute;
+    background-color: rgb(70, 180, 70);
+}

@@ -1,0 +1,27 @@
+<div class="blog-list">
+    <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+            [(ngModel)]="textSearch" (keyup.enter)="getSearch()" aria-describedby="search-addon" />
+    </div>
+    <div class="add_new">
+        <h2>List Blog</h2>
+        <a routerLink="/add"><i class="fa fa-plus" aria-hidden="true"></i></a> 
+    </div>
+    <ul class="list-unstyled">
+        <li class="media" *ngFor="let item of listBlog">
+            <img [src]="item.image" class="mr-3" alt="" onError="this.src='../assets/img/no-image.png'">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1">{{item.title}}</h5>
+                {{item.content}}
+                <br />
+                <span class="label">{{item.createdAt | date: 'short'}}</span>
+                <div class="list-action">
+                    <a href="javascript:void(0)" (click)="editList(item.id)"><i class="fas fa-edit"></i></a>
+                    <a href="javascript:void(0)" (click)="detailList(item.id)"><i class="fas fa-list"></i></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="pageSize" (pageChange)="loadPage($event)"
+        aria-label="Default pagination"></ngb-pagination>
+</div>
