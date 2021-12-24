@@ -9,7 +9,7 @@ import {Location} from '@angular/common';
 })
 export class BlogDetailEditComponent implements OnInit {
   title:string = '';
-  image:String = '';
+  image:string = '';
   content:string = '';
   isEdit: boolean = true;
   show: boolean = false;
@@ -61,11 +61,4 @@ export class BlogDetailEditComponent implements OnInit {
   back () {
     this._location.back();
   }
-}
-interface BlogList {
-  id: number;
-  title?: string
-  image?: String;
-  content?: string;
-  createdAt:string
 }

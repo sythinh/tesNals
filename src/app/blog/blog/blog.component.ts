@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiListService } from 'src/app/api-list.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BlogList } from 'src/app/blog.model';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
@@ -52,10 +53,4 @@ export class BlogComponent implements OnInit {
   }
 }
 
-interface BlogList {
-  id: number;
-  title?: string
-  image?: String;
-  content?: string;
-  createdAt:string
-}
+
