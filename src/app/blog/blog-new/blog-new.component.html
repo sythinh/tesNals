@@ -1,22 +1,30 @@
-<form  #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" style="margin-top: 40px;">
+<form  #f="ngForm" (ngSubmit)="f.valid && onSubmit()" style="margin-top: 40px;">
     <h5>Add New Blog</h5>
     <div class="form-group">
       <label for="formGroupExampleInput">Title</label>
-      <input type="text" class="form-control" id="title" name="title" placeholder="Title" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" required>
+      <input type="text" class="form-control" id="title" name="title" placeholder="Title" [(ngModel)]="title"  required>
+    </div>
+    <div class="col alert alert-danger" role="alert"
+      *ngIf="f.submitted && f.controls.title?.errors?.required">
+        Title is required!
     </div>
     <div class="form-group">
         <label for="formGroupExampleInput2">Link image</label>
-        <input type="text" class="form-control" id="image" placeholder="image" [(ngModel)]="image" [ngModelOptions]="{standalone: true}" required>
+        <input type="text" class="form-control" id="image" name="image" placeholder="Link image" [(ngModel)]="image"  required>
+    </div>
+    <div class="col alert alert-danger" role="alert"
+      *ngIf="f.submitted && f.controls.image?.errors?.required">
+      Image is required!
     </div>
     <div class="form-group">
        <img class="img-thumbnail" [src]="image" alt=""  onError="this.src='../assets/img/no-image.png'" required>
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput2">Content</label>
-      <input type="text" class="form-control" id="content" placeholder="Content" [(ngModel)]="content" [ngModelOptions]="{standalone: true}">
+      <textarea type="text" class="form-control" id="content" name="content" placeholder="Content" [(ngModel)]="content" ></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Add Neew</button>
-    
+    <button type="submit" class="btn btn-default" (click)="back()" style="margin-right: 20px;">Back</button>
+    <button type="submit" class="btn btn-primary" >Add New</button>
 </form>
 <ngb-toast *ngIf="show" [autohide]="!show" (hidden)="show=false" >
     Create new Success

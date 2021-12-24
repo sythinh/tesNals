@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiListService } from 'src/app/api-list.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-blog-new',
@@ -16,7 +17,7 @@ export class BlogNewComponent implements OnInit {
   constructor(
     private blogListService: ApiListService,
     private router: Router,
-    private route: ActivatedRoute
+    private _location: Location
   ) { }
 
   ngOnInit(): void {
@@ -34,9 +35,12 @@ export class BlogNewComponent implements OnInit {
         setTimeout(() => {
           this.show = false;
           this.router.navigateByUrl('/blog');
-        }, 5000);
+        }, 2000);
         
       }
     });
+  }
+  back () {
+    this._location.back();
   }
 }
